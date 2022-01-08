@@ -1,0 +1,41 @@
+{
+  "name": "scheduleapp",
+  "version": "1.0.0",
+  "description": "予定を通知してくれる",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "clean": "rimraf dist",
+    "ngrok": "ngrok http 3000",
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "build": "npm-run-all clean tsc",
+    "lint": "npx eslint --fix ./src/ && npx prettier --write ./src/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@line/bot-sdk": "^7.4.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "ngrok": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.4"
+  }
+}
