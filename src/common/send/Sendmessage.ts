@@ -18,7 +18,7 @@ export const SendMessage = async (
     const { text } = event.message;
 
     if (text === "予定教えて") {
-      // Reply
+      // Reply p
     } else {
       await client.replyMessage(replyToken, ErrorMessage());
     }
