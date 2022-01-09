@@ -17,7 +17,6 @@ export const QuickReplyButton = (): TextMessage => {
         },
         {
           type: "action",
-          imageUrl: "",
           action: {
             type: "message",
             label: "明日の予定を教えて!",
@@ -26,7 +25,6 @@ export const QuickReplyButton = (): TextMessage => {
         },
         {
           type: "action",
-          imageUrl: "",
           action: {
             type: "message",
             label: "来週の予定を教えて!",
