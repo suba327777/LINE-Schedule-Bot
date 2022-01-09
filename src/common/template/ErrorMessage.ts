@@ -5,6 +5,6 @@ import { TextMessage } from "@line/bot-sdk";
 export const ErrorMessage = (): TextMessage => {
   return {
     type: "text",
-    text: "このメッセージは未対応です\nこちらがテンプレになります\n・予定教えて\n 予定を教えてくれる",
+    text: "このメッセージは未対応です\nこちらがテンプレになります\n・予定",
   };
 };
