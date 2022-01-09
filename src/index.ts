@@ -46,6 +46,7 @@ app.post(
     // Assign only the 0th element of the array from the events array to a variable.
     const events: WebhookEvent[] = req.body.events;
 
+    // 受信した全てのイベントを処理する
     events.map(async (event: WebhookEvent): Promise<void> => {
       try {
         await SendMessage(client, event);
