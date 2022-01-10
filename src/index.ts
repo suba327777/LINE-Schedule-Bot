@@ -11,7 +11,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // Load the module
-import { SendMessage } from "./common/send/Sendmessage";
+import { SendMessage } from "./common/send/SendMessage";
 
 const PORT = process.env.PORT || 3000;
 
