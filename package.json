@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
+    "test": "ts-node-dev src/calendar/calendar.ts",
     "clean": "rimraf dist",
     "ngrok": "ngrok http 3000",
     "dev": "ts-node-dev --respawn src/index.ts",
@@ -15,13 +16,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@googleapis/calendar": "^1.0.1",
     "@line/bot-sdk": "^7.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "googleapis": "^92.0.0",
     "ngrok": "^4.2.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "@types/gapi": "^0.0.41",
     "@types/node": "^17.0.8",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
