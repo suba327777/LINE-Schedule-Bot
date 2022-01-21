@@ -6,5 +6,7 @@ dist
 
 npm-debug.log
 
+
 ###GCPInfo
 credentials.json
+token.json
