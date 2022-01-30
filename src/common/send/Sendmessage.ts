@@ -2,9 +2,9 @@
 import { Client, WebhookEvent } from "@line/bot-sdk";
 
 // Load the module
-import { ErrorMessage } from "../template/ErrorMessage";
+import { ErrorMessage } from "../template/message/ErrorMessage";
 import { QuickReplyButton } from "../template/button/QuickReplyButton";
-import { ListEvent } from "../../calendar/ListEvent";
+import { SchduleMessage } from "../template/message/SchduleMessage";
 
 export const SendMessage = async (
   client: Client,
@@ -23,7 +23,8 @@ export const SendMessage = async (
       // Reply
       await client.replyMessage(replyToken, QuickReplyButton());
     } else if (text === "今日の予定を教えて!") {
-      await ListEvent();
+      const message = await SchduleMessage();
+      await client.replyMessage(replyToken, message);
     } else {
       await client.replyMessage(replyToken, ErrorMessage());
     }
