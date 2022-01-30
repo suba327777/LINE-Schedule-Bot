@@ -4,6 +4,7 @@ import { Client, WebhookEvent } from "@line/bot-sdk";
 // Load the module
 import { ErrorMessage } from "../template/ErrorMessage";
 import { QuickReplyButton } from "../template/button/QuickReplyButton";
+import { ListEvent } from "../../calendar/ListEvent";
 
 export const SendMessage = async (
   client: Client,
@@ -21,6 +22,8 @@ export const SendMessage = async (
     if (text === "予定") {
       // Reply
       await client.replyMessage(replyToken, QuickReplyButton());
+    } else if (text === "今日の予定を教えて!") {
+      await ListEvent();
     } else {
       await client.replyMessage(replyToken, ErrorMessage());
     }

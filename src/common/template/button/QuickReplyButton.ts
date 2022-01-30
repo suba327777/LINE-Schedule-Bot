@@ -1,5 +1,5 @@
 // load the package
-import { QuickReply, TextMessage } from "@line/bot-sdk";
+import { TextMessage } from "@line/bot-sdk";
 
 export const QuickReplyButton = (): TextMessage => {
   return {
@@ -11,7 +11,7 @@ export const QuickReplyButton = (): TextMessage => {
           type: "action",
           action: {
             type: "message",
-            label: "今日の予定を教えて!",
+            label: "今日の予定を教えて",
             text: "今日の予定を教えて!",
           },
         },
