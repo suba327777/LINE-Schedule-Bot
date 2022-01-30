@@ -50,8 +50,8 @@ app.post(
     events.map(async (event: WebhookEvent): Promise<void> => {
       try {
         await SendMessage(client, event);
-      } catch (e: unknown) {
-        console.log(e);
+      } catch (err: unknown) {
+        console.log(err);
       }
     });
   }
