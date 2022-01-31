@@ -12,23 +12,24 @@ export const SchduleMessage = async (): Promise<TextMessage> => {
 
   const data: ListEventType = schdule;
 
+  let message = "";
+
+  data.map((res) => {
+    const start = moment(res.start?.dateTime);
+    // 日付のformat
+    const formatStart = start.format("MM月DD日HH時mm分");
+
+    const addMessage = `${formatStart}-${res.summary}`;
+
+    if (message == "") {
+      message = addMessage;
+    } else {
+      message += "\n" + addMessage;
+    }
+  });
+
   return {
     type: "text",
-    text: JSON.stringify(
-      data.map((res) => {
-        if (res === undefined) {
-          return "予定はないみたいですね";
-        }
-        const start = moment(res.start?.dateTime);
-        // 日付のformat
-        const formatStart = start.format("MM月DD日HH時mm分");
-
-        const message = `${formatStart}-${res.summary}`;
-
-        return message;
-      }),
-      null,
-      2
-    ),
+    text: message,
   };
 };
