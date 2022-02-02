@@ -19,11 +19,21 @@ export const SendMessage = async (
     const { replyToken } = event;
     const { text } = event.message;
 
+    let typeOfSchedule = "";
     if (text === "予定") {
       // Reply
       await client.replyMessage(replyToken, QuickReplyButton());
     } else if (text === "今日の予定を教えて!") {
-      const message = await SchduleMessage();
+      typeOfSchedule = "today";
+      const message = await SchduleMessage(typeOfSchedule);
+      await client.replyMessage(replyToken, message);
+    } else if (text === "明日の予定を教えて!") {
+      typeOfSchedule = "tomorrow";
+      const message = await SchduleMessage(typeOfSchedule);
+      await client.replyMessage(replyToken, message);
+    } else if (text === "来週の予定を教えて!") {
+      typeOfSchedule = "nextWeek";
+      const message = await SchduleMessage(typeOfSchedule);
       await client.replyMessage(replyToken, message);
     } else {
       await client.replyMessage(replyToken, ErrorMessage());
