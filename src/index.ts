@@ -11,7 +11,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // Load the module
-import { SendMessage } from "./common/send/SendMessage";
+import { SendListSchdule } from "./common/send/SendListSchdule";
 
 const PORT = process.env.PORT || 3000;
 
@@ -49,7 +49,7 @@ app.post(
     // 受信した全てのイベントを処理する
     events.map(async (event: WebhookEvent): Promise<void> => {
       try {
-        await SendMessage(client, event);
+        await SendListSchdule(client, event);
       } catch (err: unknown) {
         console.log(err);
       }
