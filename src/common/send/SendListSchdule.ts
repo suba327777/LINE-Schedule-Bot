@@ -4,9 +4,9 @@ import { Client, WebhookEvent } from "@line/bot-sdk";
 // Load the module
 import { ErrorMessage } from "../template/message/ErrorMessage";
 import { QuickReplyButton } from "../template/button/QuickReplyButton";
-import { SchduleMessage } from "../template/message/SchduleMessage";
+import { ListSchduleMessage } from "../template/message/LIstSchduleMessage";
 
-export const SendMessage = async (
+export const SendListSchdule = async (
   client: Client,
   event: WebhookEvent
 ): Promise<void> => {
@@ -25,15 +25,15 @@ export const SendMessage = async (
       await client.replyMessage(replyToken, QuickReplyButton());
     } else if (text === "今日の予定を教えて!") {
       typeOfSchedule = "today";
-      const message = await SchduleMessage(typeOfSchedule);
+      const message = await ListSchduleMessage(typeOfSchedule);
       await client.replyMessage(replyToken, message);
     } else if (text === "明日の予定を教えて!") {
       typeOfSchedule = "tomorrow";
-      const message = await SchduleMessage(typeOfSchedule);
+      const message = await ListSchduleMessage(typeOfSchedule);
       await client.replyMessage(replyToken, message);
     } else if (text === "来週の予定を教えて!") {
       typeOfSchedule = "nextWeek";
-      const message = await SchduleMessage(typeOfSchedule);
+      const message = await ListSchduleMessage(typeOfSchedule);
       await client.replyMessage(replyToken, message);
     } else {
       await client.replyMessage(replyToken, ErrorMessage());
