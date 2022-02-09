@@ -3,7 +3,7 @@ import { JWT } from "google-auth-library";
 import { Auth, google } from "googleapis";
 
 // credential
-import credentials from "../../config/credentials.json";
+import credentials from "../../../credentials.json";
 
 export const JwtClient = async (): Promise<JWT> => {
   // 権限

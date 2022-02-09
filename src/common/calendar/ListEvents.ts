@@ -26,7 +26,6 @@ export const ListEvents = async (typeOfSchedule: string): Promise<any> => {
       case "nextWeek":
         startDate.add(7, "days").day(1).startOf("days");
         endDate.add(7, "days").day(7).endOf("days");
-        console.log(endDate);
         break;
     }
 

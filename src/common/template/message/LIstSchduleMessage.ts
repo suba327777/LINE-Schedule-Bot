@@ -6,7 +6,7 @@ import moment from "moment";
 import { ListEvents } from "../../calendar/ListEvents";
 import { ListEventType } from "../../calendar/types/ListEventType";
 
-export const SchduleMessage = async (
+export const ListSchduleMessage = async (
   typeOfSchedule: string
 ): Promise<TextMessage> => {
   // 予定の取得
