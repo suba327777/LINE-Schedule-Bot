@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
-    "test": "ts-node-dev src/common/template/message/SchduleMessage.ts",
     "clean": "rimraf dist",
     "ngrok": "ngrok http 3000",
     "dev": "ts-node-dev --respawn src/index.ts",
     "build": "npm-run-all clean tsc",
-    "lint": "npx eslint --fix ./src/ && npx prettier --write ./src/"
+    "lint": "npx eslint --fix ./src/ && npx prettier --write ./src/",
+    "start":"npm run build && node"
   },
   "keywords": [],
   "author": "",
