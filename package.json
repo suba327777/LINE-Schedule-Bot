@@ -10,7 +10,7 @@
     "dev": "ts-node-dev --respawn src/index.ts",
     "build": "npm-run-all clean tsc",
     "lint": "npx eslint --fix ./src/ && npx prettier --write ./src/",
-    "start":"npm run build && node"
+    "start": "npm run build && node ."
   },
   "keywords": [],
   "author": "",
