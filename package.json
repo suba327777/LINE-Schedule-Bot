@@ -2,7 +2,7 @@
   "name": "scheduleapp",
   "version": "1.0.0",
   "description": "予定を通知してくれる",
-  "main": "index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "tsc": "tsc",
     "clean": "rimraf dist",
