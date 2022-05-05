@@ -3,7 +3,7 @@ dist
 .env
 .vscode
 .DS_Store
-
+package-lock.json
 npm-debug.log
 
 
