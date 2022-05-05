@@ -3,10 +3,10 @@ import { WebhookEvent } from "@line/bot-sdk";
 /* lib */
 import { lineClient } from "../../lib/line";
 /* handler */
-import { followHandler } from "./followHandler";
+import { followHandler } from "./follow";
 import { messagesHandler } from "./messages";
 /* messages */
-import { errorMessage } from "../template/notice-messages/errorMessage";
+import { errorMessage } from "../template/notice-messages/error";
 
 export const handlers = async (event: WebhookEvent): Promise<void> => {
   try {
