@@ -1,9 +1,8 @@
-/* packages */
+/* credential */
+import credentials from "../../credentials.json";
 /* packages */
 import dotenv from "dotenv";
 dotenv.config();
-/* credential */
-import credentials from "../../credentials.json";
 
 /* line */
 export const LINE_MESSAGING_CHANNEL_ACCESS_TOKEN = process.env.CHANNEL_ACCESS_TOKEN || "";

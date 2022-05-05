@@ -11,8 +11,8 @@ export const listEvents = async (typeOfSchedule: string): Promise<any> => {
     const jwt = await jwtClient();
     const calendar: calendar_v3.Calendar = google.calendar("v3");
 
-    let startDate = moment(new Date());
-    let endDate = moment(new Date());
+    const startDate = moment(new Date());
+    const endDate = moment(new Date());
 
     switch (typeOfSchedule) {
       case "today":

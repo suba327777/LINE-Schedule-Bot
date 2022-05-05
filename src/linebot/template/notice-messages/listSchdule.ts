@@ -22,10 +22,10 @@ export const listSchduleMessage = async (typeOfSchedule: string): Promise<TextMe
 
       const addMessage = `${formatStart}-${res.summary}`;
 
-      if (message == "") {
-        message = addMessage;
+      if (message === "") {
+        return (message = addMessage);
       } else {
-        message += "\n\n" + addMessage;
+        return (message += "\n\n" + addMessage);
       }
     });
   } else {
