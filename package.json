@@ -9,6 +9,7 @@
     "ngrok": "ngrok http 3000",
     "dev": "ts-node-dev --respawn src/linebot/server.ts",
     "build": "npm-run-all clean tsc",
+    "broadcast": "ts-node-dev --respawn src/linebot/notice-event/schedule.ts",
     "lint": "npx eslint --fix ./src/ && npx prettier --write ./src/",
     "start": "npm run build && node .",
     "prepare": "husky install",
