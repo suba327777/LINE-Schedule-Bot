@@ -11,5 +11,8 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["@typescript-eslint"],
-  rules: {},
+  rules: {
+    // calendar_v3対策
+    camelcase: "off",
+  },
 };
