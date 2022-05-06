@@ -1,8 +1,9 @@
 /* packages */
 import { google, calendar_v3 } from "googleapis";
-import moment from "moment";
-/* lib */
+/* constants */
 import { CALENDAR_ID } from "../../../constants/secrets";
+/* utils */
+import { date } from "../../../utils/date";
 /* jwt */
 import { jwtClient } from "./jwtClient";
 
@@ -10,30 +11,14 @@ export const listEvents = async (typeOfSchedule: string): Promise<any> => {
   try {
     const jwt = await jwtClient();
     const calendar: calendar_v3.Calendar = google.calendar("v3");
-
-    const startDate = moment(new Date());
-    const endDate = moment(new Date());
-
-    switch (typeOfSchedule) {
-      case "today":
-        endDate.endOf("days");
-        break;
-      case "tomorrow":
-        startDate.add(1, "days").startOf("days");
-        endDate.add(1, "days").endOf("days");
-        break;
-      case "nextWeek":
-        startDate.add(7, "days").day(1).startOf("days");
-        endDate.add(7, "days").day(7).endOf("days");
-        break;
-    }
+    const day = date(typeOfSchedule);
 
     // JWTの認証を行ってイベントのリストを表示する
     const calendars = await calendar.events.list({
       auth: jwt,
       calendarId: CALENDAR_ID,
-      timeMin: startDate.toISOString(),
-      timeMax: endDate.toISOString(),
+      timeMin: day.startDate.toISOString(),
+      timeMax: day.endDate.toISOString(),
       singleEvents: true,
       orderBy: "startTime",
     });

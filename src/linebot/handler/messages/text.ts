@@ -1,6 +1,6 @@
 /* packages */
 import { MessageEvent, TextEventMessage } from "@line/bot-sdk";
-/* lib */
+/* constants */
 import { lineClient } from "../../../constants/line";
 import { quickReplyButton } from "../../template/button/quickReplyButton";
 /* notice-messages */
