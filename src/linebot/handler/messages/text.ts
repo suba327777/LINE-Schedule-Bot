@@ -1,7 +1,7 @@
 /* packages */
 import { MessageEvent, TextEventMessage } from "@line/bot-sdk";
 /* lib */
-import { lineClient } from "../../../lib/line";
+import { lineClient } from "../../../constants/line";
 import { quickReplyButton } from "../../template/button/quickReplyButton";
 /* notice-messages */
 import { listSchduleMessage } from "../../template/notice-messages/listSchdule";

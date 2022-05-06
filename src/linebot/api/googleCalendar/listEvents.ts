@@ -2,7 +2,7 @@
 import { google, calendar_v3 } from "googleapis";
 import moment from "moment";
 /* lib */
-import { CALENDAR_ID } from "../../../lib/secrets";
+import { CALENDAR_ID } from "../../../constants/secrets";
 /* jwt */
 import { jwtClient } from "./jwtClient";
 

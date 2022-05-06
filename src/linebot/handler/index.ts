@@ -1,7 +1,7 @@
 /* packages */
 import { WebhookEvent } from "@line/bot-sdk";
 /* lib */
-import { lineClient } from "../../lib/line";
+import { lineClient } from "../../constants/line";
 /* handler */
 import { followHandler } from "./follow";
 import { messagesHandler } from "./messages";

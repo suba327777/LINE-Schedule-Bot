@@ -1,5 +1,5 @@
 /* lib */
-import { lineClient } from "../../lib/line";
+import { lineClient } from "../../constants/line";
 /* notice-message */
 import { errorMessage } from "../template/notice-messages/error";
 import { listSchduleMessage } from "../template/notice-messages/listSchdule";
