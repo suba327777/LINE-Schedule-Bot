@@ -1,6 +1,6 @@
 /* packages */
 import { WebhookEvent } from "@line/bot-sdk";
-/* lib */
+/* constants */
 import { lineClient } from "../../constants/line";
 /* handler */
 import { followHandler } from "./follow";

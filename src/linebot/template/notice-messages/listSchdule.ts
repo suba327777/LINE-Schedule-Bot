@@ -1,9 +1,9 @@
-// Load the Package
+/* packages */
 import { TextMessage } from "@line/bot-sdk";
 import moment from "moment";
-
-// Load the module
+/* api */
 import { listEvents } from "../../api/googleCalendar/listEvents";
+/* types */
 import { listEventType } from "../../api/googleCalendar/types/listEventType";
 
 export const listSchduleMessage = async (typeOfSchedule: string): Promise<TextMessage> => {

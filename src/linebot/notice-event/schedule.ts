@@ -1,4 +1,4 @@
-/* lib */
+/* constants */
 import { lineClient } from "../../constants/line";
 /* notice-message */
 import { errorMessage } from "../template/notice-messages/error";

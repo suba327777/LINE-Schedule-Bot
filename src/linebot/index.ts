@@ -1,7 +1,7 @@
 /* packages */
 import { middleware, WebhookEvent } from "@line/bot-sdk";
 import express from "express";
-/* lib */
+/* constants */
 import { lineMiddlewareConfig } from "../constants/line";
 /* handlers */
 import { handlers } from "./handler";

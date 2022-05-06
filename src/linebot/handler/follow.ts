@@ -1,6 +1,6 @@
 /* packages */
 import { FollowEvent } from "@line/bot-sdk";
-/* lib */
+/* constants */
 import { lineClient } from "../../constants/line";
 /* message */
 import { followMessage } from "../template/notice-messages/follow";

@@ -1,4 +1,4 @@
-// load the package
+/* packages */
 import { TextMessage } from "@line/bot-sdk";
 
 export const quickReplyButton = (): TextMessage => {

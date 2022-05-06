@@ -1,6 +1,6 @@
 /* packages */
 import { Client, ClientConfig, MiddlewareConfig } from "@line/bot-sdk";
-/* lib */
+/* constants */
 import { LINE_MESSAGING_CHANNEL_ACCESS_TOKEN, LINE_MESSAGING_CHANNEL_SECRET } from "./secrets";
 
 export const lineMiddlewareConfig: MiddlewareConfig = {

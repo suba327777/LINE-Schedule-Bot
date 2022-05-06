@@ -1,7 +1,7 @@
 /* packages */
 import { JWT } from "google-auth-library";
 import { Auth, google } from "googleapis";
-/* lib */
+/* constants */
 import { EMAIL, KEY } from "../../../constants/secrets";
 
 export const jwtClient = async (): Promise<JWT> => {
