@@ -36,6 +36,7 @@
     "@types/express": "^4.17.13",
     "@types/gapi": "^0.0.41",
     "@types/node": "^17.0.8",
+    "@types/node-json-db": "^0.9.3",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
     "eslint": "^7.32.0",
