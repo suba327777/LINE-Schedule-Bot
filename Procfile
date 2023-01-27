@@ -1,1 +1,0 @@
-web: node dist/src/linebot/server.js
