@@ -1,9 +1,7 @@
 import { WebhookEvent } from "@line/bot-sdk";
-import { lineClient } from "../../constants/line";
-import { handleText } from "../template/messages/enum";
-import { textMessage } from "../template/messages/text";
 import { followHandler } from "./follow";
 import { messagesHandler } from "./messages";
+import { postbackHandler } from "./postback";
 
 export const handlers = async (event: WebhookEvent): Promise<void> => {
   try {
@@ -12,9 +10,12 @@ export const handlers = async (event: WebhookEvent): Promise<void> => {
         return await followHandler(event);
       case "message":
         return await messagesHandler(event);
+      case "postback": {
+        const dateTime: any = event.postback.params!;
+        return postbackHandler(dateTime.datetime);
+      }
     }
-  } catch (err: unknown) {
-    lineClient.pushMessage(event.source.userId!, textMessage(handleText.error));
+  } catch (_) {
     throw new Error("handlers");
   }
 };
