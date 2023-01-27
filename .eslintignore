@@ -3,3 +3,4 @@ node_modules
 types 
 README.md
 __test__
+.vscode
