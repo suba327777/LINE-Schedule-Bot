@@ -1,25 +1,21 @@
 /* packages */
 import { MessageEvent, TextEventMessage } from "@line/bot-sdk";
-import { lineClient } from "../../../constants/line";
-import { quickReplyButton } from "../../template/button/quickReplyButton";
-import { dateButton } from "../../template/button/dateButton";
-import { listSchduleMessage } from "../../template/messages/listSchdule";
-import { textMessage } from "../../template/text";
-import { contextDB, scheduleDB } from "../../../constants/db";
+import { lineClient } from "../../constants/line";
+import { quickReplyButton } from "../template/button/quickReplyButton";
+import { dateButton } from "../template/button/dateButton";
+import { listSchduleMessage } from "../template/messages/listSchdule";
+import { textMessage } from "../template/text";
+import { contextDB, resetDB, scheduleDB } from "../../constants/db";
 
-export const messageTextHandler = async (event: MessageEvent): Promise<void> => {
+export const textHandler = async (event: MessageEvent): Promise<void> => {
   try {
     const { text } = event.message as TextEventMessage;
 
     const contextData: Promise<any> = new Promise((resolve) => {
       resolve(contextDB.getData(`/context`));
     });
-    const scheduleData: Promise<any> = new Promise((resolve) => {
-      resolve(scheduleDB.getData(`/schedule`));
-    });
 
     const context: any = await contextData;
-    const schedule: any = await scheduleData;
 
     let typeOfSchedule = "";
 
@@ -52,27 +48,19 @@ export const messageTextHandler = async (event: MessageEvent): Promise<void> => 
         break;
 
       case "date":
-        if (text === "resetj") {
-          await scheduleDB.push("/schedule", "");
-          await contextDB.push("/context", "");
+        if (text) {
+          resetDB();
           break;
-        }
-        if (schedule !== "") {
-          schedule.push(text);
-          console.log("d");
-          scheduleDB.push("/schedule", schedule);
-        } else {
-          console.log("e");
-          scheduleDB.push("/schedule", ["test"]);
         }
 
         contextDB.push("/context", "");
         break;
+
       default:
         break;
     }
-  } catch (err) {
-    console.log(err);
+  } catch (_) {
+    await resetDB();
     throw new Error("message text handler");
   }
 };
