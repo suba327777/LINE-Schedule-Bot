@@ -1,7 +1,7 @@
 import { lineClient } from "../../constants/line";
-import { handleText } from "../template/messages/enum";
+import { handleText } from "../../constants/enum";
 import { listSchduleMessage } from "../template/messages/listSchdule";
-import { textMessage } from "../template/messages/text";
+import { textMessage } from "../template/text";
 
 const scheduleEvent = async () => {
   try {
