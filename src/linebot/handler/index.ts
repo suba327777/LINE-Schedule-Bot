@@ -1,12 +1,9 @@
-/* packages */
 import { WebhookEvent } from "@line/bot-sdk";
-/* constants */
 import { lineClient } from "../../constants/line";
-/* handler */
+import { handleText } from "../template/messages/enum";
+import { textMessage } from "../template/messages/text";
 import { followHandler } from "./follow";
 import { messagesHandler } from "./messages";
-/* messages */
-import { errorMessage } from "../template/notice-messages/error";
 
 export const handlers = async (event: WebhookEvent): Promise<void> => {
   try {
@@ -17,8 +14,7 @@ export const handlers = async (event: WebhookEvent): Promise<void> => {
         return await messagesHandler(event);
     }
   } catch (err: unknown) {
-    lineClient.pushMessage(event.source.userId!, errorMessage);
-    console.log(err);
+    lineClient.pushMessage(event.source.userId!, textMessage(handleText.error));
     throw new Error("handlers");
   }
 };

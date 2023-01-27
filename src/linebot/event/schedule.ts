@@ -1,15 +1,14 @@
-/* constants */
 import { lineClient } from "../../constants/line";
-/* notice-message */
-import { errorMessage } from "../template/messages/error";
+import { handleText } from "../template/messages/enum";
 import { listSchduleMessage } from "../template/messages/listSchdule";
+import { textMessage } from "../template/messages/text";
 
 const scheduleEvent = async () => {
   try {
     const typeOfSchedule = "tomorrow";
     lineClient.broadcast(await listSchduleMessage(typeOfSchedule));
   } catch {
-    await lineClient.broadcast(errorMessage);
+    await lineClient.broadcast(textMessage(handleText.error));
   }
 };
 

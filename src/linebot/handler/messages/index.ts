@@ -10,7 +10,6 @@ export const messagesHandler = async (event: MessageEvent): Promise<void> => {
         return await messageTextHandler(event);
     }
   } catch (err: unknown) {
-    console.log(err);
     throw new Error("messages handler");
   }
 };

@@ -4,7 +4,7 @@ import { MessageEvent, TextEventMessage } from "@line/bot-sdk";
 import { lineClient } from "../../../constants/line";
 import { quickReplyButton } from "../../template/button/quickReplyButton";
 /* notice-messages */
-import { listSchduleMessage } from "../../template/notice-messages/listSchdule";
+import { listSchduleMessage } from "../../template/messages/listSchdule";
 
 export const messageTextHandler = async (event: MessageEvent): Promise<void> => {
   try {
