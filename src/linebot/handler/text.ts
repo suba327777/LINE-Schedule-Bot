@@ -6,6 +6,7 @@ import { dateButton } from "../template/button/dateButton";
 import { listSchduleMessage } from "../template/messages/listSchdule";
 import { textMessage } from "../template/text";
 import { contextDB, resetDB, scheduleDB } from "../../constants/db";
+import { handleText } from "../../constants/enum";
 
 export const textHandler = async (event: MessageEvent): Promise<void> => {
   try {
@@ -61,6 +62,7 @@ export const textHandler = async (event: MessageEvent): Promise<void> => {
     }
   } catch (_) {
     await resetDB();
+    lineClient.replyMessage(event.replyToken, textMessage(handleText.error));
     throw new Error("message text handler");
   }
 };

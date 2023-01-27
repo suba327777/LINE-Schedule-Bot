@@ -12,7 +12,7 @@ export const handlers = async (event: WebhookEvent): Promise<void> => {
         return await messagesHandler(event);
       case "postback": {
         const dateTime: any = event.postback.params!;
-        return postbackHandler(dateTime.datetime);
+        return postbackHandler(dateTime.datetime, event.replyToken);
       }
     }
   } catch (_) {
