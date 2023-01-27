@@ -29,7 +29,8 @@
     "express": "^4.17.2",
     "googleapis": "^92.0.0",
     "moment": "^2.29.1",
-    "ngrok": "^4.3.0"
+    "ngrok": "^4.3.0",
+    "node-json-db": "^2.1.4"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
