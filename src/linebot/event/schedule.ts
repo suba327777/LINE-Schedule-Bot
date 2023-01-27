@@ -1,8 +1,8 @@
 /* constants */
 import { lineClient } from "../../constants/line";
 /* notice-message */
-import { errorMessage } from "../template/notice-messages/error";
-import { listSchduleMessage } from "../template/notice-messages/listSchdule";
+import { errorMessage } from "../template/messages/error";
+import { listSchduleMessage } from "../template/messages/listSchdule";
 
 const scheduleEvent = async () => {
   try {
