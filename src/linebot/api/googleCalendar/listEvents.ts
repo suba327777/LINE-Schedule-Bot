@@ -7,11 +7,11 @@ import { date } from "../../../utils/date";
 /* jwt */
 import { jwtClient } from "./jwtClient";
 
-export const listEvents = async (typeOfSchedule: string): Promise<any> => {
+export const listEvents = async (schedule: string): Promise<any> => {
   try {
     const jwt = await jwtClient();
     const calendar: calendar_v3.Calendar = google.calendar("v3");
-    const day = date(typeOfSchedule);
+    const day = date(schedule);
 
     // JWTの認証を行ってイベントのリストを表示する
     const calendars = await calendar.events.list({
@@ -26,8 +26,7 @@ export const listEvents = async (typeOfSchedule: string): Promise<any> => {
     const results = calendars?.data.items;
 
     return results;
-  } catch (err: unknown) {
-    console.log(err);
-    throw new Error("googleCalendar");
+  } catch (_) {
+    throw new Error("listEvents");
   }
 };
