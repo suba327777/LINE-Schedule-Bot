@@ -18,7 +18,7 @@ export const dateButton = (): TemplateMessage => {
         {
           type: "message",
           label: "やっぱりやめる",
-          text: "reset",
+          text: "やっぱりやめる",
         },
       ],
     },
