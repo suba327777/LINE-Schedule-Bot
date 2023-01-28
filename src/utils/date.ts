@@ -1,19 +1,20 @@
 /* packages */
 import moment from "moment";
+import { typeOfSchedule } from "../constants/enum";
 
-export const date = (typeOfSchedule: string) => {
+export const date = (schedule: string) => {
   const startDate = moment(new Date());
   const endDate = moment(new Date());
 
-  switch (typeOfSchedule) {
-    case "today":
+  switch (schedule) {
+    case typeOfSchedule.today:
       endDate.endOf("days");
       break;
-    case "tomorrow":
+    case typeOfSchedule.tomorrow:
       startDate.add(1, "days").startOf("days");
       endDate.add(1, "days").endOf("days");
       break;
-    case "nextWeek":
+    case typeOfSchedule.nextWeek:
       startDate.add(7, "days").day(1).startOf("days");
       endDate.add(7, "days").day(7).endOf("days");
       break;

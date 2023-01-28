@@ -1,4 +1,3 @@
-/* packages */
 import { MessageEvent, TextEventMessage } from "@line/bot-sdk";
 import { lineClient } from "../../constants/line";
 import { quickReplyButton } from "../template/button/quickReplyButton";
@@ -6,7 +5,7 @@ import { dateButton } from "../template/button/dateButton";
 import { listSchduleMessage } from "../template/messages/listSchdule";
 import { textMessage } from "../template/text";
 import { contextDB, resetDB, scheduleDB } from "../../constants/db";
-import { handleText } from "../../constants/enum";
+import { handleText, typeOfSchedule } from "../../constants/enum";
 
 export const textHandler = async (event: MessageEvent): Promise<void> => {
   try {
@@ -18,23 +17,27 @@ export const textHandler = async (event: MessageEvent): Promise<void> => {
 
     const context: any = await contextData;
 
-    let typeOfSchedule = "";
-
     switch (text) {
       case "予定":
         await lineClient.replyMessage(event.replyToken, quickReplyButton());
         break;
       case "今日の予定を教えて!":
-        typeOfSchedule = "today";
-        await lineClient.replyMessage(event.replyToken, await listSchduleMessage(typeOfSchedule));
+        await lineClient.replyMessage(
+          event.replyToken,
+          await listSchduleMessage(typeOfSchedule.today),
+        );
         break;
       case "明日の予定を教えて!":
-        typeOfSchedule = "tomorrow";
-        await lineClient.replyMessage(event.replyToken, await listSchduleMessage(typeOfSchedule));
+        await lineClient.replyMessage(
+          event.replyToken,
+          await listSchduleMessage(typeOfSchedule.tomorrow),
+        );
         break;
       case "来週の予定を教えて!":
-        typeOfSchedule = "nextWeek";
-        await lineClient.replyMessage(event.replyToken, await listSchduleMessage(typeOfSchedule));
+        await lineClient.replyMessage(
+          event.replyToken,
+          await listSchduleMessage(typeOfSchedule.nextWeek),
+        );
         break;
       case "登録":
         lineClient.replyMessage(event.replyToken, textMessage("予定を追加してね!"));
@@ -50,12 +53,14 @@ export const textHandler = async (event: MessageEvent): Promise<void> => {
 
       case "date":
         if (text) {
-          resetDB();
+          await resetDB();
+          lineClient.replyMessage(event.replyToken, textMessage("もう一度最初から入力しよう!"));
           break;
         }
-
         contextDB.push("/context", "");
         break;
+
+      // case "preview":
 
       default:
         break;
